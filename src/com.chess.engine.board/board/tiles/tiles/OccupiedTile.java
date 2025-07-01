@@ -1,4 +1,4 @@
-package com.chess.engine.board.board.tiles;
+package com.chess.engine.board.board.tiles.tiles;
 
 import com.chess.engine.board.pieces.Piece;
 
