@@ -1,6 +1,6 @@
-package com.chess.engine.board.board.tiles;
+package com.chess.engine.board;
 
-import com.chess.engine.board.board.tiles.tiles.Tile;
+import com.chess.engine.board.tiles.Tile;
 
 public class Board {
 

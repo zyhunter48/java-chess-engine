@@ -1,4 +1,4 @@
-package com.chess.engine.board;
+package com.chess.engine;
 
 public enum Alliance {
     WHITE,

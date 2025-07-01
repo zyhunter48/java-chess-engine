@@ -1,6 +1,6 @@
-package com.chess.engine.board.board.tiles.tiles;
+package com.chess.engine.board.tiles;
 
-import com.chess.engine.board.pieces.Piece;
+import com.chess.engine.pieces.Piece;
 import com.google.common.collect.ImmutableMap;
 
 import java.util.HashMap;
