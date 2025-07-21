@@ -1,5 +1,6 @@
 package com.chess.engine.board.tiles;
 
+import com.chess.engine.board.BoardUtils;
 import com.chess.engine.pieces.Piece;
 import com.google.common.collect.ImmutableMap;
 
@@ -15,7 +16,7 @@ public abstract class Tile {
     private static Map<Integer, EmptyTile> createAllPossiblyEmptyTiles() {
         final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
 
-        for (int i = 0; i < 64; i++) {
+        for (int i = 0; i < BoardUtils.NUM_TILES; i++) {
             emptyTileMap.put(i, new EmptyTile(i));
         }
 
@@ -26,7 +27,7 @@ public abstract class Tile {
         return piece != null ? new OccupiedTile(tileCoordinate, piece ) : EMPTY_TILES_CAHSE.get(tileCoordinate);
     }
 
-    Tile(int TileCoordinate) {
+    Tile(final int TileCoordinate) {
         this.TileCoordinate = TileCoordinate;
     }
 

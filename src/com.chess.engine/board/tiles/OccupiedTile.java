@@ -6,7 +6,7 @@ public final class OccupiedTile extends Tile {
 
     private final Piece pieceOnTile;
 
-    public OccupiedTile(int TileCoordinate, Piece pieceOnTile) {
+    public OccupiedTile(int TileCoordinate, final Piece pieceOnTile) {
         super(TileCoordinate);
         this.pieceOnTile = pieceOnTile;
     }
