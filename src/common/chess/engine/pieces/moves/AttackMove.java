@@ -1,7 +1,7 @@
-package com.chess.engine.pieces.moves;
+package common.chess.engine.pieces.moves;
 
-import com.chess.engine.board.Board;
-import com.chess.engine.pieces.Piece;
+import common.chess.engine.board.Board;
+import common.chess.engine.pieces.Piece;
 
 public final class AttackMove extends Move{
 

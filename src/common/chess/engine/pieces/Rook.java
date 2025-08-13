@@ -1,12 +1,12 @@
-package com.chess.engine.pieces;
+package common.chess.engine.pieces;
 
-import com.chess.engine.Alliance;
-import com.chess.engine.board.Board;
-import com.chess.engine.board.BoardUtils;
-import com.chess.engine.board.tiles.Tile;
-import com.chess.engine.pieces.moves.AttackMove;
-import com.chess.engine.pieces.moves.MajorMove;
-import com.chess.engine.pieces.moves.Move;
+import common.chess.engine.Alliance;
+import common.chess.engine.board.Board;
+import common.chess.engine.board.BoardUtils;
+import common.chess.engine.board.tiles.Tile;
+import common.chess.engine.pieces.moves.AttackMove;
+import common.chess.engine.pieces.moves.MajorMove;
+import common.chess.engine.pieces.moves.Move;
 import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
@@ -15,9 +15,10 @@ import java.util.List;
 
 public class Rook extends Piece{
 
-    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = { -8, -1, 1, 8 };
+    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-8, -1, 1, 8};
 
-    Rook(int piecePosition, Alliance pieceAllience) {
+    public Rook(final Alliance pieceAllience,
+                final int piecePosition) {
         super(piecePosition, pieceAllience);
     }
 
@@ -60,6 +61,11 @@ public class Rook extends Piece{
             }
         }
         return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public String toString(){
+        return PieceType.ROOK.toString();
     }
 
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset){

@@ -1,23 +1,24 @@
-package com.chess.engine.pieces;
+package common.chess.engine.pieces;
 
-import com.chess.engine.Alliance;
-import com.chess.engine.board.Board;
-import com.chess.engine.board.BoardUtils;
-import com.chess.engine.board.tiles.Tile;
-import com.chess.engine.pieces.moves.AttackMove;
-import com.chess.engine.pieces.moves.MajorMove;
-import com.chess.engine.pieces.moves.Move;
+import common.chess.engine.Alliance;
+import common.chess.engine.board.Board;
+import common.chess.engine.board.BoardUtils;
+import common.chess.engine.board.tiles.Tile;
+import common.chess.engine.pieces.moves.AttackMove;
+import common.chess.engine.pieces.moves.MajorMove;
+import common.chess.engine.pieces.moves.Move;
 import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Queen extends Piece{
+public class Bishop extends Piece{
 
-    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = { -9, -8, -7, -1, 1, 7, 8, 9 };
+    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -7, 7, 9};
 
-    Queen(int piecePosition, Alliance pieceAllience) {
+    public Bishop(final Alliance pieceAllience,
+                  final int piecePosition) {
         super(piecePosition, pieceAllience);
     }
 
@@ -62,10 +63,16 @@ public class Queen extends Piece{
         return ImmutableList.copyOf(legalMoves);
     }
 
+    @Override
+    public String toString(){
+        return PieceType.BISHOP.toString();
+    }
+
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset){
-        return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -1 || candidateOffset == -9 || candidateOffset == 7);
+        return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -9 || candidateOffset == 7);
     }
     private static boolean isEightColumnExclusion(final int currentPosition, final int candidateOffset){
-        return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == -7 || candidateOffset == 1 || candidateOffset == 9);
+        return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset == -7 || candidateOffset == 9);
     }
+
 }

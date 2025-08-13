@@ -1,12 +1,12 @@
-package com.chess.engine.pieces;
+package common.chess.engine.pieces;
 
-import com.chess.engine.Alliance;
-import com.chess.engine.board.Board;
-import com.chess.engine.board.BoardUtils;
-import com.chess.engine.pieces.moves.AttackMove;
-import com.chess.engine.pieces.moves.MajorMove;
-import com.chess.engine.pieces.moves.Move;
-import com.chess.engine.board.tiles.Tile;
+import common.chess.engine.Alliance;
+import common.chess.engine.board.Board;
+import common.chess.engine.board.BoardUtils;
+import common.chess.engine.pieces.moves.AttackMove;
+import common.chess.engine.pieces.moves.MajorMove;
+import common.chess.engine.pieces.moves.Move;
+import common.chess.engine.board.tiles.Tile;
 import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
@@ -15,9 +15,10 @@ import java.util.List;
 
 public class Knight extends Piece {
 
-    private final static int[] CANDIDATE_MOVE_COORDINATES = { -17, -15, -10, -6, 6, 10, 15, 17 };
+    private final static int[] CANDIDATE_MOVE_COORDINATES = {-17, -15, -10, -6, 6, 10, 15, 17};
 
-    Knight(final int piecePosition,final Alliance pieceAllience) {
+    public Knight(final Alliance pieceAllience,
+                  final int piecePosition) {
         super(piecePosition, pieceAllience);
     }
 
@@ -32,7 +33,7 @@ public class Knight extends Piece {
 
             if(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)){
 
-                if(isFirstExclusion(this.piecePosition, currentCandidateOffset) ||
+                if(isFirstColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                         isSecondColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                         isSeventhColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                         isEightColumnExclusion(this.piecePosition, currentCandidateOffset)){
@@ -58,7 +59,12 @@ public class Knight extends Piece {
         return ImmutableList.copyOf(legalMoves);
     }
 
-    private static boolean isFirstExclusion(final int currentPosition, final int candidateOffset){
+    @Override
+    public String toString(){
+        return PieceType.KNIGHT.toString();
+    }
+
+    private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset){
         return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -17 || candidateOffset == -10 ||
                 candidateOffset == 6 || candidateOffset == 15);
     }

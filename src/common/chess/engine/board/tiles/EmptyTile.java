@@ -1,11 +1,16 @@
-package com.chess.engine.board.tiles;
+package common.chess.engine.board.tiles;
 
-import com.chess.engine.pieces.Piece;
+import common.chess.engine.pieces.Piece;
 
 public final class EmptyTile extends Tile {
 
     public EmptyTile(final int coordinate) {
         super(coordinate);
+    }
+
+    @Override
+    public String toString() {
+        return "-";
     }
 
     @Override

@@ -1,6 +1,6 @@
-package com.chess.engine.board.tiles;
+package common.chess.engine.board.tiles;
 
-import com.chess.engine.pieces.Piece;
+import common.chess.engine.pieces.Piece;
 
 public final class OccupiedTile extends Tile {
 
@@ -9,6 +9,12 @@ public final class OccupiedTile extends Tile {
     public OccupiedTile(int TileCoordinate, final Piece pieceOnTile) {
         super(TileCoordinate);
         this.pieceOnTile = pieceOnTile;
+    }
+
+    @Override
+    public String toString(){
+        return getPiece().getPieceAllience().isBlack() ? getPiece().toString().toLowerCase() :
+               getPiece().toString();
     }
 
     @Override
